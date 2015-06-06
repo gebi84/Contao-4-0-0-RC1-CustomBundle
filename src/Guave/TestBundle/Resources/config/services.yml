@@ -1,0 +1,3 @@
+services:
+    kernel_bundle:
+        class: Guave\TestBundle\GuaveTestBundle
