@@ -1,0 +1,59 @@
+{
+    "name": "contao/standard-edition",
+    "type": "project",
+    "description": "Contao Open Source CMS",
+    "license": "LGPL-3.0+",
+    "authors": [
+        {
+            "name": "Leo Feyer",
+            "homepage": "https://github.com/leofeyer"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "contao/contao": "~4.0",
+        "doctrine/annotations": "~1.2",
+        "incenteev/composer-parameter-handler": "~2.0",
+        "sensio/distribution-bundle": "~3.0",
+        "sensio/framework-extra-bundle": "~3.0",
+        "symfony/monolog-bundle": "~2.6",
+        "symfony/swiftmailer-bundle": "~2.3",
+        "symfony/symfony": "~2.6"
+    },
+    "config": {
+        "component-dir": "assets",
+        "preferred-install": "dist"
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
+            "Contao\\CoreBundle\\Composer\\ScriptHandler::addDirectories",
+            "Contao\\CoreBundle\\Composer\\ScriptHandler::generateSymlinks"
+        ],
+        "post-update-cmd": [
+            "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
+            "Contao\\CoreBundle\\Composer\\ScriptHandler::addDirectories",
+            "Contao\\CoreBundle\\Composer\\ScriptHandler::generateSymlinks"
+        ]
+    },
+    "autoload": {
+      "psr-0": { "": "src/" }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-develop": "4.0.x-dev"
+        },
+        "incenteev-parameters": {
+            "file": "app/config/parameters.yml"
+        },
+        "symfony-assets-install": "relative"
+    },
+    "prefer-stable": true,
+    "minimum-stability": "dev"
+}
