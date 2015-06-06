@@ -9,7 +9,7 @@ $GLOBALS['TL_DCA']['tl_test'] = array
 	// Config
 	'config' => array
 	(
-		'dataContainer'               => 'Test',
+		'dataContainer'               => 'Table',
 		'switchToEdit'                => true,
 		'enableVersioning'            => true,
 		'onload_callback' => array
